@@ -16,6 +16,22 @@ public class UserRegistrationMain {
     	
     	return fname.matches(pattern);
     }
+	
+public static boolean validateLastName(String lname) {
+    	
+		/*Kumar : valid
+		 * kumar : Invalid: start with capital case
+		 * Kum : valid :
+		 * kum : invalid
+		 * Ku : invalid
+		 * 
+		 * */
+    	String pattern = "[A-Z]{1}[a-zA-Z]{2,}";
+    	
+    	return lname.matches(pattern);
+    }
+	
+	
     
 	public static void main(String[] args) {
 		
@@ -28,6 +44,16 @@ public class UserRegistrationMain {
 		while(!validateFirstName(fname)) {
 			System.out.println("Invalid!! Enter first name again: ");
 			fname = sc.nextLine() ;
+			
+		}
+		
+        System.out.println("Enter last name: ");
+		
+		String lname = sc.nextLine();
+		
+		while(!validateLastName(lname)) {
+			System.out.println("Invalid!! Enter last name again: ");
+			lname = sc.nextLine() ;
 			
 		}
 		
