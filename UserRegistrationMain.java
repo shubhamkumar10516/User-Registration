@@ -45,6 +45,13 @@ public class UserRegistrationMain {
 		return email.matches(pattern);
 	}
     
+	public static boolean validateMobile(String mobNo) {
+		
+		String pattern = "[0-9]{2}[ ][0-9]{10}";
+		return mobNo.matches(pattern);
+
+	}
+	
 	
 	public static void main(String[] args) {
 		
@@ -77,6 +84,16 @@ public class UserRegistrationMain {
 		while(!validateEmail(email)) {
 			System.out.println("Invalid!! Enter email again: ");
 			email = sc.nextLine() ;
+			
+		}
+		
+        System.out.println("Enter mob no: ");
+		
+		String mobNo = sc.nextLine();
+		
+		while(!validateMobile(mobNo)) {
+			System.out.println("Invalid!! Enter mobile no again: ");
+			mobNo = sc.nextLine() ;
 			
 		}
 		
