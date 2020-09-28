@@ -47,12 +47,21 @@ public class UserRegistrationMain {
     
 	public static boolean validateMobile(String mobNo) {
 		
+		/*
+		 * 91 8583967650: correct
+		 * 9 8723457612: incorrect
+		 * 22 123456789012: incorrect
+		 * */
 		String pattern = "[0-9]{2}[ ][0-9]{10}";
 		return mobNo.matches(pattern);
 
 	}
 	
-	
+	public static boolean validatePassword(String password) {
+		
+		String pattern = "[a-zA-Z]{8,}";
+		return password.matches(pattern);
+	}
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -97,6 +106,15 @@ public class UserRegistrationMain {
 			
 		}
 		
+        System.out.println("Enter password: ");
+		
+		String password = sc.nextLine();
+		
+		while(!validatePassword(password)) {
+			System.out.println("Invalid!! Enter password again: ");
+			password = sc.nextLine() ;
+			
+		}
 		
 	}
 }
