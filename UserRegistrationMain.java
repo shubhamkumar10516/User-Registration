@@ -17,7 +17,7 @@ public class UserRegistrationMain {
     	return fname.matches(pattern);
     }
 	
-public static boolean validateLastName(String lname) {
+    public static boolean validateLastName(String lname) {
     	
 		/*Kumar : valid
 		 * kumar : Invalid: start with capital case
@@ -31,8 +31,21 @@ public static boolean validateLastName(String lname) {
     	return lname.matches(pattern);
     }
 	
-	
+	public static boolean validateEmail(String email) {
+		
+		/*
+		 * shubh.kumar@blib.co.in: true
+		 * s.kum@gmail.com: false
+		 * s.Kumar@Capgemini.co.in : true
+		 * sh12Kum@Capgemini.co.in : true
+		 * */
+		
+		String pattern = "^([a-zA-Z]+[a-zA-Z._0-9]*[a-zA-Z0-9]+)[@]([a-zA-Z]{2,}[.][a-zA-Z]{2,}[.][a-zA-Z]{2,})$";
+       
+		return email.matches(pattern);
+	}
     
+	
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -57,6 +70,15 @@ public static boolean validateLastName(String lname) {
 			
 		}
 		
+        System.out.println("Enter email: ");
+		
+		String email = sc.nextLine();
+		
+		while(!validateEmail(email)) {
+			System.out.println("Invalid!! Enter email again: ");
+			email = sc.nextLine() ;
+			
+		}
 		
 		
 	}
